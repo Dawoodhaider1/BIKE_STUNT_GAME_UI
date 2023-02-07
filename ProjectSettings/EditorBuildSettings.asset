@@ -6,10 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Side-Scroller Motorcycle/Scenes/scene1.unity
+    path: Assets/Bike_Stunt_Assets/Scene/Main_Menu.unity
+    guid: e1e450d7764d8b2429b13bea88530c88
   - enabled: 1
-    path: Assets/Side-Scroller Motorcycle/Scenes/scene2.unity
+    path: Assets/Bike_Stunt_Assets/Scene/Bike_Selection.unity
+    guid: 32322e16a18cc8b4cb67e96b7301d48d
   - enabled: 1
-    path: Assets/Side-Scroller Motorcycle/Scenes/scene 2D_1.unity
-  - enabled: 1
-    path: Assets/Side-Scroller Motorcycle/Scenes/scene 2D_2.unity
+    path: Assets/Bike_Stunt_Assets/Scene/BikeStunt_Levels.unity
+    guid: bccf94bf6e72dd94b9b965e3cb0fe802
+  m_configObjects: {}

@@ -1,0 +1,119 @@
+fileFormatVersion: 2
+guid: a875ce5405c5b5346b379ba539f0154b
+labels:
+- Garage
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: _GarageCollision
+    100002: AirFilterMesh
+    100004: Banners
+    100006: BoxesMesh
+    100008: GarageInterior
+    100010: //RootNode
+    100012: GarageObjects
+    100014: HangingSigns
+    100016: Windows
+    100018: SunlightBlocker
+    400000: _GarageCollision
+    400002: AirFilterMesh
+    400004: Banners
+    400006: BoxesMesh
+    400008: GarageInterior
+    400010: //RootNode
+    400012: GarageObjects
+    400014: HangingSigns
+    400016: Windows
+    400018: SunlightBlocker
+    2300000: _GarageCollision
+    2300002: AirFilterMesh
+    2300004: Banners
+    2300006: BoxesMesh
+    2300008: GarageInterior
+    2300010: GarageObjects
+    2300012: HangingSigns
+    2300014: Windows
+    2300016: SunlightBlocker
+    3300000: _GarageCollision
+    3300002: AirFilterMesh
+    3300004: Banners
+    3300006: BoxesMesh
+    3300008: GarageInterior
+    3300010: GarageObjects
+    3300012: HangingSigns
+    3300014: Windows
+    3300016: SunlightBlocker
+    4300000: GarageInterior
+    4300002: Banners
+    4300004: Windows
+    4300006: HangingSigns
+    4300008: _GarageCollision
+    4300010: BoxesMesh
+    4300012: AirFilterMesh
+    4300014: GarageObjects
+    4300016: SunlightBlocker
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
