@@ -19,6 +19,8 @@ public class Motorcycle_Controller : MonoBehaviour
 
     //used to count scores
     public static int score = 0;
+    public static int Bonus = 0;
+    public static int Total = 0;
 
     //used to change motorcycle characteristics
     public Rigidbody body;
@@ -53,6 +55,9 @@ public class Motorcycle_Controller : MonoBehaviour
 
     //used to show scores
     public Text scoreText;
+    public Text Level_Reward;
+    public Text Level_Bonus;
+    public Text Total_Score;
     //public Color scoreTextColor;
 
     //used to determine if motorcycle is grounded or in air
@@ -91,6 +96,11 @@ public class Motorcycle_Controller : MonoBehaviour
 
         //scoreText = GameObject.Find("score text").GetComponent<Text>();
         scoreText.text = "SCORE : " + score;
+        Level_Reward.text = score.ToString();
+        Bonus = score + 50;
+        Level_Bonus.text = Bonus.ToString();
+        Total = score + Bonus;
+        Total_Score.text = Total.ToString();
 
         //change score text color
         //scoreText.material.color = scoreTextColor;
@@ -283,6 +293,11 @@ public class Motorcycle_Controller : MonoBehaviour
                 backflipParticle.Emit(1);
                 score += 100;
                 scoreText.text = "SCORE : " + score;
+                Level_Reward.text = score.ToString();
+                Bonus = score + 50;
+                Level_Bonus.text = Bonus.ToString();
+                Total = score + Bonus;
+                Total_Score.text = Total.ToString();
             }
 
             if (body.rotation.eulerAngles.z < 30 && flip) //frontflip is done
@@ -291,6 +306,11 @@ public class Motorcycle_Controller : MonoBehaviour
                 frontflipParticle.Emit(1);
                 score += 150;
                 scoreText.text = "SCORE : " + score;
+                Level_Reward.text = score.ToString();
+                Bonus = score + 50;
+                Level_Bonus.text = Bonus.ToString();
+                Total = score + Bonus;
+                Total_Score.text = Total.ToString();
             }
 
             //if any horizontal key (determined in edit -> project settings -> input)  is pressed or if "formobile" is activated, left or right buttons are touched or accelerometer is used

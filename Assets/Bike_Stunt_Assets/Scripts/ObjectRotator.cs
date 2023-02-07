@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Collections;
 
-public class ObjectRotator : MonoBehaviour {
-
+public class ObjectRotator : MonoBehaviour
+{
     public enum Axis
     {
         X,

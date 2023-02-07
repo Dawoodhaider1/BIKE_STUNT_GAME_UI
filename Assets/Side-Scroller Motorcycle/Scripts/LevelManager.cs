@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
     private void Start()
     {
-        Debug.Log("Current Level number: " + MainManager.Instance.Level_Index);
+        //Debug.Log("Current Level number: " + MainManager.Instance.Level_Index);
         levelPanels[MainManager.Instance.Level_Index].SetActive(true);
     }
 
@@ -42,5 +42,21 @@ public class LevelManager : MonoBehaviour
                 levelPanels[MainManager.Instance.Level_Index].SetActive(false);
             }
         }
+    }
+
+    public void Bike_Selection()
+    {
+        Application.LoadLevel("Bike_Selection");
+    }
+
+    public void Exit_Game()
+    {
+        Application.Quit();
+        Debug.Log("Exit from game !");
+    }
+
+    public void Main_Menu()
+    {
+        Application.LoadLevel("Main_Menu");
     }
 }

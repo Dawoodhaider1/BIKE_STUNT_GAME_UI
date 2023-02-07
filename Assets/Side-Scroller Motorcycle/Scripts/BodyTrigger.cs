@@ -68,12 +68,14 @@ public class BodyTrigger : MonoBehaviour
     IEnumerator Wait_FinishPanel()
     {
         yield return new WaitForSeconds(2f);
+        Motorcycle_Controller.score = 0;
         Finish_Panel.SetActive(true);
     }
 
     IEnumerator Wait_LoosePanel()
     {
         yield return new WaitForSeconds(3f);
+        Motorcycle_Controller.score = 0;
         Loose_Panel.SetActive(true);
     }
 
