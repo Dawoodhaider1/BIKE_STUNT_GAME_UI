@@ -86,17 +86,17 @@ public class BodyTrigger : MonoBehaviour
             Motorcycle_Controller.isControllable = false; //disable motorcycle controlling
 
             //disable rear wheel rotation
-            for (int i = 0; i < 5; i++)
+            for(int i =0; i < 5; i++)
             {
                 var m = transform.root.GetChild(i).GetComponent<Motorcycle_Controller>();
                 m.rearWheel.freezeRotation = true;
             }
 
-            if (MainManager.Instance.Level_Index <= MainManager.Instance.Unlocked_Level)
-            {
-                MainManager.Instance.Unlocked_Level++;
-                Debug.Log("Unlocked Level is Updading");
-            }
+            //if (MainManager.Instance.Level_Index >= MainManager.Instance.Unlocked_Level)
+            //{
+            //    MainManager.Instance.Unlocked_Level++;
+            //    Debug.Log("Unlocked Level is Updading");
+            //}
         }
         else if (obj.tag != "Checkpoint") //if entered in any other trigger than "Finish" & "Checkpoint", that means player crashed
         {
@@ -117,16 +117,16 @@ public class BodyTrigger : MonoBehaviour
 
     void Update()
     {
-        if (finish && (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) //if motorcycle entered in finish and space is pressed
-        {
-            if (nextLevel)
-            {
-                Application.LoadLevel(Application.loadedLevel + 1);	//load next level
-            }
-            else
-                Application.LoadLevel(0); //load first level
+        //if (finish && (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) //if motorcycle entered in finish and space is pressed
+        //{
+        //    if (nextLevel)
+        //    {
+        //        Application.LoadLevel(Application.loadedLevel + 1);	//load next level
+        //    }
+        //    else
+        //        Application.LoadLevel(0); //load first level
 
-            Motorcycle_Controller.score = 0;
-        }
+        //    Motorcycle_Controller.score = 0;
+        //}
     }
 }

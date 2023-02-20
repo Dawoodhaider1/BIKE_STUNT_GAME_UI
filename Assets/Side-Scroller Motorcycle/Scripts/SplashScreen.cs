@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class SplashScreen : MonoBehaviour
 {
     public Slider loadingSlider;
-    public float loadingTime = 3f;
+    public float loadingTime = 5f;
 
     private void Start()
     {
@@ -23,6 +23,7 @@ public class SplashScreen : MonoBehaviour
             yield return null;
         }
 
+        yield return new WaitForSeconds(1.5f);
         Application.LoadLevel("Main_Menu");
         // Do something after the loading is complete, such as loading the next scene or enabling the game controls.
     }

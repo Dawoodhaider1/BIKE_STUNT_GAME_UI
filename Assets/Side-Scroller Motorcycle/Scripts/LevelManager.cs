@@ -8,11 +8,33 @@ public class LevelManager : MonoBehaviour
 {
     public GameObject FinishPanel;
     public GameObject[] levelPanels;
+    public AudioSource GamePlay_Music;
+    //public Level_Selection level_Selection;
 
     private void Start()
     {
-        //Debug.Log("Current Level number: " + MainManager.Instance.Level_Index);
-        levelPanels[MainManager.Instance.Level_Index].SetActive(true);
+        GamePlay_Music.Play();
+
+        if (MainManager.Instance.Level_Index > MainManager.Instance.Unlocked_Level)
+        {
+            MainManager.Instance.Unlocked_Level++;
+            Debug.Log("Unlocked Level is Updading");
+        }
+        if (MainManager.Instance.i == 0)
+        {
+            levelPanels[MainManager.Instance.Selected_Level].SetActive(true);
+            MainManager.Instance.i++;
+            //MainManager.Instance.SaveUserData();
+        }
+        else
+        {
+            for (int i = 0; i < levelPanels.Length; i++)
+            {
+                levelPanels[i].SetActive(false);
+            }
+            levelPanels[MainManager.Instance.Level_Index].SetActive(true);
+            MainManager.Instance.SaveUserData();
+        }
     }
 
     public void ReloadLevel()
@@ -29,19 +51,20 @@ public class LevelManager : MonoBehaviour
         {
             MainManager.Instance.Level_Index = 0;
         }
-
-        for (int i = 0; i < levelPanels.Length; i++)
-        {
-            if (i == MainManager.Instance.Level_Index)
-            {
-                Application.LoadLevel(Application.loadedLevel);
-                FinishPanel.SetActive(false);
-            }
-            else
-            {
-                levelPanels[MainManager.Instance.Level_Index].SetActive(false);
-            }
-        }
+        SceneManager.LoadScene("BikeStunt_Levels");
+        //for (int i = 0; i < levelPanels.Length; i++)
+        //{
+        //    if (i == MainManager.Instance.Level_Index)
+        //    {
+        //        //Application.LoadLevel(Application.loadedLevel);
+        //        SceneManager.LoadScene("BikeStunt_Levels");
+        //        FinishPanel.SetActive(false);
+        //    }
+        //    else
+        //    {
+        //        levelPanels[MainManager.Instance.Level_Index].SetActive(false);
+        //    }
+        //}
     }
 
     public void Bike_Selection()
@@ -59,4 +82,14 @@ public class LevelManager : MonoBehaviour
     {
         Application.LoadLevel("Main_Menu");
     }
+
+    //public void Unlock_Next_Level()
+    //{
+    //    Debug.Log(MainManager.Instance.Unlocked_Level);
+    //    if(MainManager.Instance.Level_Index <= MainManager.Instance.Unlocked_Level)
+    //    {
+    //        MainManager.Instance.Unlocked_Level++;
+    //        Debug.Log("Unlocked Level is Updading");
+    //    }
+    //}
 }

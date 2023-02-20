@@ -97,13 +97,11 @@ public class Motorcycle_Controller : MonoBehaviour
         //scoreText = GameObject.Find("score text").GetComponent<Text>();
         scoreText.text = "SCORE : " + score;
         Level_Reward.text = score.ToString();
-        Bonus = score + 50;
+        //Bonus = score + 50;
         Level_Bonus.text = Bonus.ToString();
         Total = score + Bonus;
         Total_Score.text = Total.ToString();
-
-        //change score text color
-        //scoreText.material.color = scoreTextColor;
+        //MainManager.Instance.Coins = MainManager.Instance.Coins + Total;
 
         //adding motorcycle body as a follow target for camera
         if (is2D)//if there is activated is2D checkbox on motorcycle, than you need to assign "CameraFollow2D.cs" script to camera
@@ -294,10 +292,11 @@ public class Motorcycle_Controller : MonoBehaviour
                 score += 100;
                 scoreText.text = "SCORE : " + score;
                 Level_Reward.text = score.ToString();
-                Bonus = score + 50;
-                Level_Bonus.text = Bonus.ToString();
+                Bonus = score + Random.Range(50,200);
+                //Level_Bonus.text = Bonus.ToString();
                 Total = score + Bonus;
                 Total_Score.text = Total.ToString();
+                //MainManager.Instance.Coins = MainManager.Instance.Coins + Total;
             }
 
             if (body.rotation.eulerAngles.z < 30 && flip) //frontflip is done
@@ -307,10 +306,11 @@ public class Motorcycle_Controller : MonoBehaviour
                 score += 150;
                 scoreText.text = "SCORE : " + score;
                 Level_Reward.text = score.ToString();
-                Bonus = score + 50;
-                Level_Bonus.text = Bonus.ToString();
+                Bonus = score + Random.Range(50, 200);
+                //Level_Bonus.text = Bonus.ToString();
                 Total = score + Bonus;
                 Total_Score.text = Total.ToString();
+                //MainManager.Instance.Coins = MainManager.Instance.Coins + Total;
             }
 
             //if any horizontal key (determined in edit -> project settings -> input)  is pressed or if "formobile" is activated, left or right buttons are touched or accelerometer is used

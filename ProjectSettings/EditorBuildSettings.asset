@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Bike_Stunt_Assets/Scene/Splash_Screen.unity
+    guid: 5ec9f4dd310da5f49a5fcd624e1dec64
+  - enabled: 1
     path: Assets/Bike_Stunt_Assets/Scene/Main_Menu.unity
     guid: e1e450d7764d8b2429b13bea88530c88
   - enabled: 1
