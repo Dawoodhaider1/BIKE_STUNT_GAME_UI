@@ -18,8 +18,6 @@ public class BodyTrigger : MonoBehaviour
     //used to show text when entered in finish
     private Text winText;
     private Text crashText;
-    //public Color winTextColor;
-    //public Color crashTextColor;
 
     //used to know if next level exists.
     private bool nextLevel = false;
@@ -28,20 +26,14 @@ public class BodyTrigger : MonoBehaviour
     public GameObject Finish_Panel;
     public GameObject Loose_Panel;
 
+    //Audio sources
+    public AudioSource Loose_Sound;
+    public AudioSource Win_Sound;
+
 
     void Start()
     {
         finish = false;
-
-        //winText = GameObject.Find ("win text").GetComponent<Text>();
-        //crashText = GameObject.Find ("crash text").GetComponent<Text>();
-
-        //winText.enabled = false;
-        //crashText.enabled = false;
-
-        //change text colors
-        //winText.material.color = winTextColor;
-        //crashText.material.color = crashTextColor;
 
         //ignoring collision between biker's bodytrigger and motorcycle body
         Physics.IgnoreCollision(this.GetComponent<Collider>(), transform.parent.GetComponent<Collider>());
@@ -70,6 +62,8 @@ public class BodyTrigger : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Motorcycle_Controller.score = 0;
         Finish_Panel.SetActive(true);
+        Win_Sound.Play();
+        MainManager.Instance.Coins = MainManager.Instance.Coins + Motorcycle_Controller.Total;
     }
 
     IEnumerator Wait_LoosePanel()
@@ -77,6 +71,7 @@ public class BodyTrigger : MonoBehaviour
         yield return new WaitForSeconds(3f);
         Motorcycle_Controller.score = 0;
         Loose_Panel.SetActive(true);
+        Loose_Sound.Play();
     }
 
     void OnTriggerEnter(Collider obj)
@@ -91,30 +86,17 @@ public class BodyTrigger : MonoBehaviour
             Motorcycle_Controller.isControllable = false; //disable motorcycle controlling
 
             //disable rear wheel rotation
-            var m = transform.root.GetComponent<Motorcycle_Controller>();
-            m.rearWheel.freezeRotation = true;
+            for (int i = 0; i < 5; i++)
+            {
+                var m = transform.root.GetChild(i).GetComponent<Motorcycle_Controller>();
+                m.rearWheel.freezeRotation = true;
+            }
 
-            //winText.enabled = true; //show win text	
-
-
-            //if(Application.loadedLevel < Application.levelCount - 1) //if won level isn't last level (levels are set in File -> Build Settings)
-            //{
-            //	nextLevel = true;
-
-            //	if(m.forMobile)
-            //		winText.text = "CONGRATULATIONS, YOU WON! \n YOUR SCORE IS: " + Motorcycle_Controller.score + "\n\n TAP ON SCREEN FOR NEXT LEVEL";
-            //	else
-            //		winText.text = "CONGRATULATIONS, YOU WON! \n YOUR SCORE IS: " + Motorcycle_Controller.score + "\n\n PRESS SPACE FOR NEXT LEVEL";				
-            //}
-            //else //won level is last one
-            //{
-            //	if(m.forMobile)
-            //		winText.text = "CONGRATULATIONS, YOU WON! \n YOUR SCORE IS: " + Motorcycle_Controller.score + "\n\n TAP ON SCREEN TO PLAY FIRST LEVEL";				
-            //	else
-            //		winText.text = "CONGRATULATIONS, YOU WON! \n YOUR SCORE IS: " + Motorcycle_Controller.score + "\n\n PRESS SPACE TO PLAY FIRST LEVEL";				
-
-            //	nextLevel = false;
-            //}
+            if (MainManager.Instance.Level_Index <= MainManager.Instance.Unlocked_Level)
+            {
+                MainManager.Instance.Unlocked_Level++;
+                Debug.Log("Unlocked Level is Updading");
+            }
         }
         else if (obj.tag != "Checkpoint") //if entered in any other trigger than "Finish" & "Checkpoint", that means player crashed
         {
@@ -129,28 +111,6 @@ public class BodyTrigger : MonoBehaviour
 
                 //Activate the Loose Panel
                 StartCoroutine(Wait_LoosePanel());
-
-                //if (!finish) //if we haven't entered in finish make crash text visible
-                //{
-                //    //crashText.enabled = true;
-
-                //    var m = transform.root.GetComponent<Motorcycle_Controller>();
-                //    if (m.forMobile)
-                //    {
-                //        if (Checkpoint.lastPoint)
-                //            crashText.text = "TAP ON SCREEN TO GO TO LAST CHECKPOINT \n TAP ON SCREEN WITH 2 FINGERS TO RESTART";
-                //        else
-                //            crashText.text = "TAP ON SCREEN WITH 2 FINGERS TO RESTART";
-                //    }
-                //    else
-                //    {
-                //        if (Checkpoint.lastPoint)
-                //            crashText.text = "PRESS 'C' TO GO TO LAST CHECKPOINT \n PRESS 'R' TO RESTART";
-                //        else
-                //            crashText.text = "PRESS 'R' TO RESTART";
-                //    }
-
-                //}
             }
         }
     }
