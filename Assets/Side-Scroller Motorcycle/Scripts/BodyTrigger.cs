@@ -60,18 +60,20 @@ public class BodyTrigger : MonoBehaviour
     IEnumerator Wait_FinishPanel()
     {
         yield return new WaitForSeconds(2f);
-        Motorcycle_Controller.score = 0;
         Finish_Panel.SetActive(true);
         Win_Sound.Play();
-        MainManager.Instance.Coins = MainManager.Instance.Coins + Motorcycle_Controller.Total;
+        MainManager.Instance.Coins += Motorcycle_Controller.Total;
+        Motorcycle_Controller.score = 0;
+        Motorcycle_Controller.Bonus = 0;
     }
 
     IEnumerator Wait_LoosePanel()
     {
         yield return new WaitForSeconds(3f);
-        Motorcycle_Controller.score = 0;
         Loose_Panel.SetActive(true);
         Loose_Sound.Play();
+        Motorcycle_Controller.score = 0;
+        Motorcycle_Controller.Bonus = 0;
     }
 
     void OnTriggerEnter(Collider obj)
@@ -79,6 +81,14 @@ public class BodyTrigger : MonoBehaviour
 
         if (obj.gameObject.tag == "Finish" && !Motorcycle_Controller.crash)//if entered in finish trigger
         {
+            //Calculating and displaying the total Score...
+            Motorcycle_Controller.FindObjectOfType<Motorcycle_Controller>().Level_Reward.text = Motorcycle_Controller.score.ToString();
+            Motorcycle_Controller.Bonus = (Random.Range(50, 200)) + Motorcycle_Controller.score;
+            Motorcycle_Controller.FindObjectOfType<Motorcycle_Controller>().Level_Bonus.text = Motorcycle_Controller.Bonus.ToString();
+            Motorcycle_Controller.Total = Motorcycle_Controller.score + Motorcycle_Controller.Bonus;
+            Motorcycle_Controller.FindObjectOfType<Motorcycle_Controller>().Total_Score.text = Motorcycle_Controller.Total.ToString();
+
+            //Displaying the Level Finish Panel...
             StartCoroutine(Wait_FinishPanel());
             Debug.Log("waiting for 2 seconds");
             finish = true;
@@ -91,12 +101,6 @@ public class BodyTrigger : MonoBehaviour
                 var m = transform.root.GetChild(i).GetComponent<Motorcycle_Controller>();
                 m.rearWheel.freezeRotation = true;
             }
-
-            //if (MainManager.Instance.Level_Index >= MainManager.Instance.Unlocked_Level)
-            //{
-            //    MainManager.Instance.Unlocked_Level++;
-            //    Debug.Log("Unlocked Level is Updading");
-            //}
         }
         else if (obj.tag != "Checkpoint") //if entered in any other trigger than "Finish" & "Checkpoint", that means player crashed
         {
@@ -115,18 +119,18 @@ public class BodyTrigger : MonoBehaviour
         }
     }
 
-    void Update()
-    {
-        //if (finish && (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) //if motorcycle entered in finish and space is pressed
-        //{
-        //    if (nextLevel)
-        //    {
-        //        Application.LoadLevel(Application.loadedLevel + 1);	//load next level
-        //    }
-        //    else
-        //        Application.LoadLevel(0); //load first level
+    //void Update()
+    //{
+    //    //if (finish && (Input.GetKeyDown(KeyCode.Space) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began))) //if motorcycle entered in finish and space is pressed
+    //    //{
+    //    //    if (nextLevel)
+    //    //    {
+    //    //        Application.LoadLevel(Application.loadedLevel + 1);	//load next level
+    //    //    }
+    //    //    else
+    //    //        Application.LoadLevel(0); //load first level
 
-        //    Motorcycle_Controller.score = 0;
-        //}
-    }
+    //    //    Motorcycle_Controller.score = 0;
+    //    //}
+    //}
 }

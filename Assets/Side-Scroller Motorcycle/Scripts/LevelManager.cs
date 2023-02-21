@@ -86,7 +86,7 @@ public class LevelManager : MonoBehaviour
     //public void Unlock_Next_Level()
     //{
     //    Debug.Log(MainManager.Instance.Unlocked_Level);
-    //    if(MainManager.Instance.Level_Index <= MainManager.Instance.Unlocked_Level)
+    //    if(MainManager.Instance.Level_Index >= MainManager.Instance.Unlocked_Level)
     //    {
     //        MainManager.Instance.Unlocked_Level++;
     //        Debug.Log("Unlocked Level is Updading");

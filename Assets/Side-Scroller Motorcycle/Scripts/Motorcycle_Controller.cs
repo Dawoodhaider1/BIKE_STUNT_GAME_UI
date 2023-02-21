@@ -96,11 +96,11 @@ public class Motorcycle_Controller : MonoBehaviour
 
         //scoreText = GameObject.Find("score text").GetComponent<Text>();
         scoreText.text = "SCORE : " + score;
-        Level_Reward.text = score.ToString();
+        //Level_Reward.text = score.ToString();
         //Bonus = score + 50;
-        Level_Bonus.text = Bonus.ToString();
-        Total = score + Bonus;
-        Total_Score.text = Total.ToString();
+        //Level_Bonus.text = Bonus.ToString();
+        //Total = score + Bonus;
+        //Total_Score.text = Total.ToString();
         //MainManager.Instance.Coins = MainManager.Instance.Coins + Total;
 
         //adding motorcycle body as a follow target for camera
@@ -290,12 +290,12 @@ public class Motorcycle_Controller : MonoBehaviour
                 flip = false;
                 backflipParticle.Emit(1);
                 score += 100;
-                scoreText.text = "SCORE : " + score;
-                Level_Reward.text = score.ToString();
-                Bonus = score + Random.Range(50,200);
+                //scoreText.text = "SCORE : " + score;
+                //Level_Reward.text = score.ToString();
+                //Bonus = score + Random.Range(50,200);
                 //Level_Bonus.text = Bonus.ToString();
-                Total = score + Bonus;
-                Total_Score.text = Total.ToString();
+                //Total = score + Bonus;
+                //Total_Score.text = Total.ToString();
                 //MainManager.Instance.Coins = MainManager.Instance.Coins + Total;
             }
 
@@ -304,12 +304,12 @@ public class Motorcycle_Controller : MonoBehaviour
                 flip = false;
                 frontflipParticle.Emit(1);
                 score += 150;
-                scoreText.text = "SCORE : " + score;
-                Level_Reward.text = score.ToString();
-                Bonus = score + Random.Range(50, 200);
+                //scoreText.text = "SCORE : " + score;
+                //Level_Reward.text = score.ToString();
+                //Bonus = score + Random.Range(50, 200);
                 //Level_Bonus.text = Bonus.ToString();
-                Total = score + Bonus;
-                Total_Score.text = Total.ToString();
+                //Total = score + Bonus;
+                //Total_Score.text = Total.ToString();
                 //MainManager.Instance.Coins = MainManager.Instance.Coins + Total;
             }
 
