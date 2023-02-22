@@ -65,6 +65,8 @@ public class BodyTrigger : MonoBehaviour
         MainManager.Instance.Coins += Motorcycle_Controller.Total;
         Motorcycle_Controller.score = 0;
         Motorcycle_Controller.Bonus = 0;
+        yield return new WaitForSeconds(0.8f);
+        AudioListener.volume = 0;
     }
 
     IEnumerator Wait_LoosePanel()
@@ -74,6 +76,8 @@ public class BodyTrigger : MonoBehaviour
         Loose_Sound.Play();
         Motorcycle_Controller.score = 0;
         Motorcycle_Controller.Bonus = 0;
+        yield return new WaitForSeconds(0.8f);
+        AudioListener.volume = 0;
     }
 
     void OnTriggerEnter(Collider obj)

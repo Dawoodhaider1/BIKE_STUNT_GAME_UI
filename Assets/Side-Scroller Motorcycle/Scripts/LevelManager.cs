@@ -35,6 +35,15 @@ public class LevelManager : MonoBehaviour
             levelPanels[MainManager.Instance.Level_Index].SetActive(true);
             MainManager.Instance.SaveUserData();
         }
+
+        if (MainManager.Instance.GameSounds == true)
+        {
+            AudioListener.volume = 1;
+        }
+        else
+        {
+            AudioListener.volume = 0;
+        }
     }
 
     public void ReloadLevel()
@@ -92,4 +101,5 @@ public class LevelManager : MonoBehaviour
     //        Debug.Log("Unlocked Level is Updading");
     //    }
     //}
+
 }

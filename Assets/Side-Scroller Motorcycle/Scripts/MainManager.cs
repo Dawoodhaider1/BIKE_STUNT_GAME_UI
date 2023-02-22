@@ -21,9 +21,10 @@ public class MainManager : MonoBehaviour
     public int[] Purchased_Bikes = new int[4];
     public bool[] Purchased = new bool[4];
 
+    public bool GameSounds = true;
+
     private void Awake()
     {
-        //Menu_BG_Sounds.Play();
         if (Instance != null)
         {
             Destroy(gameObject);

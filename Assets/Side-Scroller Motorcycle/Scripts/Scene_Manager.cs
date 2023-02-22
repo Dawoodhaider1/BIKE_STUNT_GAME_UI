@@ -11,13 +11,9 @@ public class Scene_Manager : MonoBehaviour
 
     private void Start()
     {
+        Menu_BG_Audio.Play();
+
         Coins_Text.text = MainManager.Instance.Coins.ToString();
-        int activeSceneNumber = SceneManager.GetActiveScene().buildIndex;
-        if (activeSceneNumber == 1)
-        {
-            Menu_BG_Audio.Play();
-            Debug.Log("Main Manager audio playing");
-        }
     }
 
     public void Bike_Selection()
@@ -51,6 +47,15 @@ public class Scene_Manager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             Application.LoadLevel("Main_Menu");
+        }
+
+        if(MainManager.Instance.GameSounds == true)
+        {
+            AudioListener.volume = 1;
+        }
+        else
+        {
+            AudioListener.volume = 0;
         }
     }
 }
