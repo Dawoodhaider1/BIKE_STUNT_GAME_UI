@@ -4,22 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    //public static SoundManager Instance;
-
-    //public AudioSource audioSource;
     public bool soundOn = true;
-
-    //private void Awake()
-    //{
-    //    if (Instance != null)
-    //    {
-    //        Destroy(gameObject);
-    //        return;
-    //    }
-
-    //    Instance = this;
-    //    DontDestroyOnLoad(gameObject);
-    //}
 
     public void Sounds_On()
     {
